@@ -4,13 +4,16 @@
     // For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387
     "version": "0.2.0",
     "configurations": [
-        {
-            "type": "java",
-            "name": "Game",
-            "request": "launch",
-            "mainClass": "Game",
-            "projectName": "project-moba_fe330d9e",
-            "args": "characterPool.txt"
-        }
+      {
+        "type": "java",
+        "name": "Game",
+        "request": "launch",
+        "mainClass": "Game",
+        "projectName": "project-moba_f99b8931",
+        "args": [
+          "characterPool.txt",
+          "itemShop.txt"
+        ]
+      }
     ]
 }

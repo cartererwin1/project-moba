@@ -1,18 +1,17 @@
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.util.HashMap;
-import java.util.HashSet;
 import java.util.Scanner;
-
 
 
 /**
  * The main program of project-moba initializes the map, players, starts clock
  *
  */
-
 public class Game {
     public static boolean areFighting = true;
+    public static HashMap<String, Item> itemShop;
+    public static HashMap<String, Character> characterPool;
     /**
      * Creates the pool of characters from the characterpool.txt file
      * @param characterPoolFile the source file containing character stats
@@ -67,24 +66,50 @@ public class Game {
         }
 
     }
+    /**
+     * Creates the Map of all items available to buy during the game
+     * @param itemShopFile file with item shop data
+     * @return Hashmap of items with the item names as keys
+     */
+    public static HashMap<String, Item> buildItemShop(File itemShopFile) {
+      Scanner sc;
+        HashMap<String, Item> itemShop = new HashMap<>();
+        try {
+            sc = new Scanner(itemShopFile);
+            while(sc.hasNextLine()) {
+                String[] itemData = sc.nextLine().strip().split(" ");
+                Item item = new Item(itemData[0], Integer.parseInt(itemData[1]), Integer.parseInt(itemData[2]));
+                itemShop.put(itemData[0], item);
+            }
+            sc.close();
+            return itemShop;
+        } catch (FileNotFoundException e) {
+            // TODO Auto-generated catch block
+            e.printStackTrace();
+        }
+
+        return null;
+    }
     public static void main(String[] args) {
         File characterPoolFile = new File(args[0]);
-        HashMap<String, Character> characterPool = buildCharacters(characterPoolFile);
-        //
+        characterPool = buildCharacters(characterPoolFile);
+        File itemShopFile = new File(args[1]);
+        itemShop = buildItemShop(itemShopFile);
         Scanner sc = new Scanner(System.in);
         System.out.println("Player 1 select character (enter name):");
         String player1CharacterName = sc.nextLine();
         System.out.println("Player 2 select character (enter name):");
         String player2CharacterName = sc.nextLine();
+        sc.close();
         Character player1Character = characterPool.get(player1CharacterName);
         Character player2Character = characterPool.get(player2CharacterName);
+        player2Character.buyItem(itemShop.get("Kraken-Slayer"));
+        System.out.println(player2Character);
         //simulateFight(player1Character, player2Character);
-        MyThread player1Thread = new MyThread();
-        MyThread player2Thread = new MyThread();
+        //MyThread player1Thread = new MyThread();
+        //MyThread player2Thread = new MyThread();
         
-        player1Thread.run(player1Character);
-        player2Thread.run(player2Character);
-
-
+        //player1Thread.run(player1Character);
+        //player2Thread.run(player2Character);
     }
 }
