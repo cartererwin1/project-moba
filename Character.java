@@ -16,7 +16,8 @@ public class Character  implements Runnable{
   private Ability specialAbility;
   private ArrayList<Item> items;
 
-  public Character(String characterName, int healthPoints, int attackDamage, int attackSpeed, Ability ability1, Ability ability2, Ability specialAbility) {
+  public Character(String characterName, int healthPoints, int attackDamage, int attackSpeed, 
+  Ability ability1, Ability ability2, Ability specialAbility) {
     //this.playerName = playerName;
     this.characterName = characterName;
     this.healthPoints = healthPoints;
