@@ -25,7 +25,8 @@ public class Game {
             while(sc.hasNextLine()) {
                 String[] characterData = sc.nextLine().strip().split(" ");
                 Character character = new Character(characterData[0], Integer.parseInt(characterData[1]), 
-                Integer.parseInt(characterData[2]),Integer.parseInt(characterData[3]));
+                Integer.parseInt(characterData[2]), Integer.parseInt(characterData[3]), 
+                new Ability(characterData[4], characterData[5]), new Ability(characterData[6], characterData[7]), new Ability(characterData[8], characterData[9]));
                 characters.put(characterData[0], character);
             }
             sc.close();
@@ -46,13 +47,13 @@ public class Game {
 
             
 
-            /*
-            character1.basicAttack(character2);
-            character2.basicAttack(character1);
-            */
+            //character1.basicAttack(character2);
+            character1.ability1(character2);
+            character1.specialAbility(character2);
+            //character2.basicAttack(character1);
 
-            System.out.println(character1);
-            System.out.println(character2);
+            //System.out.println(character1);
+            //System.out.println(character2);
 
             
 
@@ -103,9 +104,9 @@ public class Game {
         sc.close();
         Character player1Character = characterPool.get(player1CharacterName);
         Character player2Character = characterPool.get(player2CharacterName);
-        player2Character.buyItem(itemShop.get("Kraken-Slayer"));
+        //player2Character.buyItem(itemShop.get("Kraken-Slayer"));
         System.out.println(player2Character);
-        //simulateFight(player1Character, player2Character);
+        simulateFight(player1Character, player2Character);
         //MyThread player1Thread = new MyThread();
         //MyThread player2Thread = new MyThread();
         

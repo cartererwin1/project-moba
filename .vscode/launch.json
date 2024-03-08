@@ -9,7 +9,7 @@
         "name": "Game",
         "request": "launch",
         "mainClass": "Game",
-        "projectName": "project-moba_f99b8931",
+        "projectName": "project-moba_528562f3",
         "args": [
           "characterPool.txt",
           "itemShop.txt"

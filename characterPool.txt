@@ -1,2 +1,3 @@
-Yone 100 42 1
-Yasuo 110 40 2
+Onmoo 130 30 1 Onmoo1 ab1 Onmoo2 ab2 Onmoospecial sp
+Hibrah 70 25 1 Hibrah1 ab1 Hibrah2 ab2 Hibrahspecial sp
+Knob 150 90 1 Knobstomper You-have-been-knobstomped! Kerfuffle you-have-been-kerfuffled Kerplunk kerplunk!
